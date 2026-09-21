@@ -111,7 +111,7 @@ async def add_timing_header(request: Request, call_next):
     return response
 
 
-@app.get("/health", tags=["meta"])
+@app.api_route("/health", methods=["GET", "HEAD"], tags=["meta"])
 def health() -> dict:
     """Liveness and configuration check."""
     from sqlalchemy import text
@@ -145,7 +145,7 @@ def health() -> dict:
     }
 
 
-@app.get("/", tags=["meta"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["meta"])
 def root() -> dict:
     return {
         "name": settings.app_name,
