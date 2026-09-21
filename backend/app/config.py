@@ -42,7 +42,7 @@ class Settings(BaseSettings):
         default_factory=lambda: [
             "http://localhost:3000",
             "http://127.0.0.1:3000",
-            "https://duplicate-brain.onrender.com",
+            "https://duplicate-brain-1.onrender.com",
         ]
     )
 

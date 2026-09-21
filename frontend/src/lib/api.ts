@@ -20,7 +20,7 @@ import type {
 } from "./types";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1";
+  process.env.NEXT_PUBLIC_API_URL ?? "https://duplicate-brain-1.onrender.com/api/v1";
 const TOKEN_KEY = "cognitive-twin-token";
 
 export class ApiError extends Error {
