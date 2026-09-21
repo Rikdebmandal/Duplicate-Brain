@@ -1,0 +1,62 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: cognitive-twin-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-twin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-twin-dev-password}
+      POSTGRES_DB: ${POSTGRES_DB:-cognitive_twin}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-twin} -d ${POSTGRES_DB:-cognitive_twin}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+    container_name: cognitive-twin-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-twin}:${POSTGRES_PASSWORD:-twin-dev-password}@db:5432/${POSTGRES_DB:-cognitive_twin}
+      SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY in .env}
+      FIELD_ENCRYPTION_KEY: ${FIELD_ENCRYPTION_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      LLM_ENABLED: ${LLM_ENABLED:-true}
+      LLM_MODEL: ${LLM_MODEL:-claude-sonnet-5}
+      EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-hashing}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      MIN_DECISIONS_FOR_ML: ${MIN_DECISIONS_FOR_ML:-12}
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - model_store:/app/model_store
+    # Migrate before serving, so a fresh volume comes up with the full schema.
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000/api/v1}
+    container_name: cognitive-twin-web
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000/api/v1}
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+
+volumes:
+  db_data:
+  model_store:

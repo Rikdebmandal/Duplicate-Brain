@@ -1,0 +1,452 @@
+{
+  "persona": {
+    "name": "Demo user",
+    "description": "A synthetic but internally consistent decision history for a person who is risk-averse and family-anchored, deliberates before committing, and becomes noticeably more willing to act when the upside is unusually large and family is not disturbed. It exists so the pipeline can be exercised end to end; it is not a real person and is not modelled on one.",
+    "designed_signals": [
+      "Declines relocation and high-uncertainty opportunities when family is affected.",
+      "Accepts career growth readily when it does not disturb family proximity.",
+      "Becomes risk-tolerant only when the reward is exceptional - this is the interaction the reward-modulated risk tolerance term should recover.",
+      "Prefers deferring and researching when the picture is unclear and there is no deadline.",
+      "A late shift in 2025-2026 towards accepting more career risk, so preference-drift handling is exercised."
+    ]
+  },
+  "decisions": [
+    {
+      "situation": "A well-known consultancy in Bengaluru offered me a role paying about 60% more than my current salary. It would mean moving away from my parents, who I currently live with and help look after.",
+      "options": ["Accept and relocate to Bengaluru", "Stay in my current job"],
+      "decision": "Stay in my current job",
+      "reason": "The money was good but I could not justify leaving my parents on their own right now. My current job is stable and I am not unhappy in it.",
+      "category": "career",
+      "importance": 9,
+      "occurred_at": "2021-03-14",
+      "outcome": "Stayed. Got a small raise six months later.",
+      "satisfaction": 0.4
+    },
+    {
+      "situation": "My manager offered me the lead role on a new internal project. More responsibility and visibility, no change to location or hours.",
+      "options": ["Take the project lead role", "Decline and stay on my current work"],
+      "decision": "Take the project lead role",
+      "reason": "Real growth with no downside I could see. Nothing about my life outside work had to change.",
+      "category": "career",
+      "importance": 6,
+      "occurred_at": "2021-05-02",
+      "outcome": "Delivered it. Good visibility.",
+      "satisfaction": 0.8
+    },
+    {
+      "situation": "A friend asked me to put a substantial part of my savings into his early-stage venture. He was confident but the business had no revenue and no other investors yet.",
+      "options": ["Invest a large part of my savings", "Decline politely"],
+      "decision": "Decline politely",
+      "reason": "Unproven business, no revenue, and it was money I could not afford to lose. Saying no was awkward with a friend but I could not gamble savings on it.",
+      "category": "finance",
+      "importance": 8,
+      "occurred_at": "2021-07-21",
+      "outcome": "The venture shut down 18 months later.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "I could put my annual bonus into an index fund or leave it in a fixed deposit. The fund had better expected returns but could fall in any given year.",
+      "options": ["Put it in the index fund", "Keep it in the fixed deposit"],
+      "decision": "Keep it in the fixed deposit",
+      "reason": "I wanted to know exactly what the number would be. I compared both for weeks and still could not stomach the possibility of it going down.",
+      "category": "finance",
+      "importance": 5,
+      "occurred_at": "2021-09-09",
+      "outcome": "Safe but underperformed.",
+      "satisfaction": -0.2
+    },
+    {
+      "situation": "A part-time evening certification in data engineering. It would cost money and about ten hours a week for eight months, but it would clearly help my career in the long run.",
+      "options": ["Enrol in the certification", "Skip it for now"],
+      "decision": "Enrol in the certification",
+      "reason": "Hard work but it pays off over years and I could do it without changing anything else about my life.",
+      "category": "education",
+      "importance": 7,
+      "occurred_at": "2021-11-18",
+      "outcome": "Completed it.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "A recruiter approached me about a role at a one-year-old startup in Pune. About 40% more money, but early stage and I would have to move.",
+      "options": ["Accept the startup offer in Pune", "Turn it down"],
+      "decision": "Turn it down",
+      "reason": "One year old with no clear runway, and relocation again. Too much uncertainty stacked on top of moving away from family.",
+      "category": "career",
+      "importance": 7,
+      "occurred_at": "2022-01-30",
+      "outcome": "Turned it down.",
+      "satisfaction": 0.5
+    },
+    {
+      "situation": "My team asked whether I wanted to move to a client-facing role. Same city, same pay, quite different day-to-day work and a lot more unpredictability in my schedule.",
+      "options": ["Move to the client-facing role", "Stay in my current role"],
+      "decision": "Stay in my current role",
+      "reason": "I did not know enough about what the schedule would actually look like and nobody could tell me clearly. I would rather keep the predictable version.",
+      "category": "career",
+      "importance": 5,
+      "occurred_at": "2022-03-11",
+      "outcome": "Stayed.",
+      "satisfaction": 0.3
+    },
+    {
+      "situation": "I found a flat closer to my office that would cut my commute by an hour a day, but it was 20% more expensive and I would be further from my parents.",
+      "options": ["Move to the flat near the office", "Stay where I am"],
+      "decision": "Stay where I am",
+      "reason": "The commute is tiring but being fifteen minutes from my parents matters more to me than an hour a day.",
+      "category": "lifestyle",
+      "importance": 6,
+      "occurred_at": "2022-05-27",
+      "outcome": "Stayed.",
+      "satisfaction": 0.6
+    },
+    {
+      "situation": "Offered a two-week unpaid research collaboration abroad. Excellent for my profile, cost me leave and some money, family fine with it because it was short.",
+      "options": ["Go for the collaboration", "Decline it"],
+      "decision": "Go for the collaboration",
+      "reason": "Short enough that nothing at home was disrupted, and the long-term value to my work was obvious.",
+      "category": "career",
+      "importance": 6,
+      "occurred_at": "2022-08-04",
+      "outcome": "Went. Led to a paper.",
+      "satisfaction": 1.0
+    },
+    {
+      "situation": "A colleague suggested I quit and go freelance. Potentially much more money and complete control over my time, but no guaranteed income at all.",
+      "options": ["Quit and go freelance", "Stay employed"],
+      "decision": "Stay employed",
+      "reason": "The freedom appealed to me more than I expected but I could not accept months with no guaranteed income while I support people at home.",
+      "category": "career",
+      "importance": 8,
+      "occurred_at": "2022-10-15",
+      "outcome": "Stayed employed.",
+      "satisfaction": 0.5
+    },
+    {
+      "situation": "My insurance renewal came up with a cheaper provider I had not heard of, versus my existing one which costs more.",
+      "options": ["Switch to the cheaper provider", "Renew with my current provider"],
+      "decision": "Renew with my current provider",
+      "reason": "I read the reviews for a long time and the savings were not worth an unknown company when it comes to a claim.",
+      "category": "finance",
+      "importance": 4,
+      "occurred_at": "2022-12-02",
+      "outcome": "Renewed.",
+      "satisfaction": 0.5
+    },
+    {
+      "situation": "An acquaintance offered me a place in a cryptocurrency trading pool with very high advertised returns and no clear explanation of how it worked.",
+      "options": ["Put money into the pool", "Stay out of it"],
+      "decision": "Stay out of it",
+      "reason": "Nobody could explain to me how the returns were generated. That was enough.",
+      "category": "finance",
+      "importance": 6,
+      "occurred_at": "2023-01-19",
+      "outcome": "Stayed out. It collapsed.",
+      "satisfaction": 1.0
+    },
+    {
+      "situation": "A promotion to senior analyst was offered, with a 25% raise and significantly longer hours during quarter ends.",
+      "options": ["Accept the promotion", "Stay at my current level"],
+      "decision": "Accept the promotion",
+      "reason": "The extra hours are only a few weeks a year, the money is real, and it is the obvious next step. Nothing about where I live changes.",
+      "category": "career",
+      "importance": 7,
+      "occurred_at": "2023-03-08",
+      "outcome": "Accepted.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "A multinational offered me a role in Singapore at roughly three times my current salary, with relocation support and a five-year contract. My parents were healthy and my sister had moved back to live with them.",
+      "options": ["Accept the Singapore role", "Decline and stay"],
+      "decision": "Accept the Singapore role",
+      "reason": "This was different. Three times the money changes what I can do for my family long term, my sister is with our parents now, and the company has been around for decades. I researched it for two months before saying yes.",
+      "category": "career",
+      "importance": 10,
+      "occurred_at": "2023-06-12",
+      "outcome": "Accepted and moved.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "In Singapore I could rent a small flat close to the office or a larger one further out for the same money.",
+      "options": ["Take the small flat near the office", "Take the larger flat further out"],
+      "decision": "Take the small flat near the office",
+      "reason": "Less commuting and less hassle while I settle in. I did not need the space.",
+      "category": "lifestyle",
+      "importance": 3,
+      "occurred_at": "2023-07-20",
+      "outcome": "Took the small flat.",
+      "satisfaction": 0.7
+    },
+    {
+      "situation": "An internal transfer to a newly formed team was available. Interesting work but the team had existed for three months and there was talk that it might be restructured.",
+      "options": ["Transfer to the new team", "Stay on my current team"],
+      "decision": "Stay on my current team",
+      "reason": "I had only just arrived in a new country. Adding an unstable team on top of that was more change than I wanted at once.",
+      "category": "career",
+      "importance": 6,
+      "occurred_at": "2023-09-25",
+      "outcome": "Stayed. The team was restructured.",
+      "satisfaction": 0.8
+    },
+    {
+      "situation": "My employer offered stock options in place of part of my cash bonus. Higher expected value, but the value depends on the share price in four years.",
+      "options": ["Take the stock options", "Take the cash bonus"],
+      "decision": "Take the cash bonus",
+      "reason": "I am sending money home every month. I cannot make that depend on a share price four years out.",
+      "category": "finance",
+      "importance": 7,
+      "occurred_at": "2023-11-14",
+      "outcome": "Took cash.",
+      "satisfaction": 0.4
+    },
+    {
+      "situation": "A recruiter offered a role at a competitor with a 15% raise but a reputation for very long hours and high turnover.",
+      "options": ["Move to the competitor", "Stay where I am"],
+      "decision": "Stay where I am",
+      "reason": "Fifteen percent does not buy back my evenings, and the churn there told me something.",
+      "category": "career",
+      "importance": 6,
+      "occurred_at": "2024-01-22",
+      "outcome": "Stayed.",
+      "satisfaction": 0.8
+    },
+    {
+      "situation": "I was asked to present at a large industry conference. Good exposure but I find public speaking stressful and it required a lot of preparation.",
+      "options": ["Accept the speaking slot", "Decline it"],
+      "decision": "Accept the speaking slot",
+      "reason": "Uncomfortable but it builds something that lasts, and I had three months to prepare properly.",
+      "category": "career",
+      "importance": 5,
+      "occurred_at": "2024-02-28",
+      "outcome": "Presented. Went well.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "My parents needed help with a large medical expense. I could pay it from savings immediately or take a low-interest loan and keep my savings buffer intact.",
+      "options": ["Pay it from savings immediately", "Take a low-interest loan"],
+      "decision": "Pay it from savings immediately",
+      "reason": "I was not going to have this hanging over the family as a debt. The buffer can be rebuilt.",
+      "category": "family",
+      "importance": 10,
+      "occurred_at": "2024-04-06",
+      "outcome": "Paid from savings.",
+      "satisfaction": 1.0
+    },
+    {
+      "situation": "A recruiter offered a fully remote role at similar pay that would let me move back to be near my parents.",
+      "options": ["Take the remote role and move back", "Stay in Singapore"],
+      "decision": "Take the remote role and move back",
+      "reason": "Same money, and it puts me back near my parents after the health scare. There was nothing to weigh.",
+      "category": "career",
+      "importance": 9,
+      "occurred_at": "2024-06-17",
+      "outcome": "Moved back.",
+      "satisfaction": 1.0
+    },
+    {
+      "situation": "With the money saved in Singapore I could buy a flat outright or keep renting and invest the difference in the market.",
+      "options": ["Buy the flat outright", "Keep renting and invest"],
+      "decision": "Buy the flat outright",
+      "reason": "Owning it outright means nobody can take it away and there is no monthly uncertainty. I know the market probably returns more on paper.",
+      "category": "finance",
+      "importance": 9,
+      "occurred_at": "2024-08-29",
+      "outcome": "Bought.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "An old colleague asked me to join his consultancy as a partner. Uncapped upside, but I would take a 50% pay cut for the first year with no guarantee it works.",
+      "options": ["Join as a partner", "Decline and stay employed"],
+      "decision": "Decline and stay employed",
+      "reason": "A year at half pay right after buying a flat is not something I can carry, however good the upside looks.",
+      "category": "career",
+      "importance": 8,
+      "occurred_at": "2024-10-11",
+      "outcome": "Declined.",
+      "satisfaction": 0.6
+    },
+    {
+      "situation": "A short online course on machine learning for finance, moderate cost, evenings and weekends for three months.",
+      "options": ["Take the course", "Skip it"],
+      "decision": "Take the course",
+      "reason": "Cheap relative to what it opens up later. I would rather build the skill before I need it.",
+      "category": "education",
+      "importance": 5,
+      "occurred_at": "2024-11-30",
+      "outcome": "Completed.",
+      "satisfaction": 0.8
+    },
+    {
+      "situation": "A vendor offered me a personal gift to influence which supplier my team selected. Nobody would have known.",
+      "options": ["Accept the gift", "Refuse and report it"],
+      "decision": "Refuse and report it",
+      "reason": "That is not a thing I do, regardless of whether anyone would find out.",
+      "category": "ethics",
+      "importance": 9,
+      "occurred_at": "2025-01-15",
+      "outcome": "Refused and reported.",
+      "satisfaction": 1.0
+    },
+    {
+      "situation": "My employer restructured and offered either a voluntary exit package worth eight months of salary, or a transfer to a different function I had no experience in.",
+      "options": ["Take the exit package", "Transfer to the new function"],
+      "decision": "Transfer to the new function",
+      "reason": "Eight months of money runs out. A job does not. I would rather learn something new than be looking for work.",
+      "category": "career",
+      "importance": 9,
+      "occurred_at": "2025-02-20",
+      "outcome": "Transferred.",
+      "satisfaction": 0.7
+    },
+    {
+      "situation": "Friends were pressuring me to join an expensive group holiday. I did not really want to go and it would have cost a month of savings.",
+      "options": ["Go on the holiday", "Decline and stay home"],
+      "decision": "Decline and stay home",
+      "reason": "I did not want to go and the cost was hard to justify. They were annoyed but that passed.",
+      "category": "social",
+      "importance": 4,
+      "occurred_at": "2025-04-02",
+      "outcome": "Did not go.",
+      "satisfaction": 0.7
+    },
+    {
+      "situation": "I was offered the chance to lead a high-visibility project with a real chance of public failure, but a large bonus and a likely promotion if it worked.",
+      "options": ["Take the project", "Pass on it"],
+      "decision": "Take the project",
+      "reason": "I have more of a cushion now than I used to. The upside is large and even if it fails I keep my job.",
+      "category": "career",
+      "importance": 8,
+      "occurred_at": "2025-05-19",
+      "outcome": "Took it. Delivered late but delivered.",
+      "satisfaction": 0.7
+    },
+    {
+      "situation": "A small allocation of my portfolio into higher-risk equity, roughly 10% of what I hold, with the rest staying conservative.",
+      "options": ["Make the 10% allocation", "Keep everything conservative"],
+      "decision": "Make the 10% allocation",
+      "reason": "Ten percent is an amount I can lose entirely without it changing anything. That is a different question from betting savings.",
+      "category": "finance",
+      "importance": 5,
+      "occurred_at": "2025-07-08",
+      "outcome": "Allocated.",
+      "satisfaction": 0.8
+    },
+    {
+      "situation": "A former manager offered me a role at a Series B startup, 80% more money, in my own city, no relocation. The company had four years of history and named investors.",
+      "options": ["Accept the startup role", "Stay in my current job"],
+      "decision": "Accept the startup role",
+      "reason": "Four years in with real investors is not the same as a one-year-old company. No relocation, big raise, and I know the person I would report to. I still took six weeks to decide.",
+      "category": "career",
+      "importance": 9,
+      "occurred_at": "2025-09-16",
+      "outcome": "Accepted.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "The new company offered to move me onto a mostly equity compensation package with much higher potential value.",
+      "options": ["Switch to mostly equity", "Keep the mostly cash package"],
+      "decision": "Keep the mostly cash package",
+      "reason": "I took the job risk already. I am not going to take the compensation risk on top of it.",
+      "category": "finance",
+      "importance": 7,
+      "occurred_at": "2025-10-28",
+      "outcome": "Kept cash.",
+      "satisfaction": 0.8
+    },
+    {
+      "situation": "I had to decide whether to hire quickly from a shortlist I was not fully convinced by, or keep the role open and keep searching while my team was short-staffed.",
+      "options": ["Hire from the current shortlist", "Keep searching"],
+      "decision": "Keep searching",
+      "reason": "A wrong hire costs a year. Being short-staffed for another month is annoying but recoverable.",
+      "category": "work",
+      "importance": 7,
+      "occurred_at": "2025-12-04",
+      "outcome": "Hired well two months later.",
+      "satisfaction": 0.9
+    },
+    {
+      "situation": "An urgent decision: a supplier offered a large discount if I committed by the end of the day, with no time to check their references.",
+      "options": ["Commit today for the discount", "Let the discount go and check properly"],
+      "decision": "Let the discount go and check properly",
+      "reason": "Anything that needs my signature today and will not survive two days of checking is telling me something.",
+      "category": "work",
+      "importance": 6,
+      "occurred_at": "2026-01-21",
+      "outcome": "Checked. They had issues.",
+      "satisfaction": 1.0
+    },
+    {
+      "situation": "I was invited to co-found a side venture with two people I respect. It would take most of my evenings and weekends for at least a year, with genuine long-term upside and no immediate income.",
+      "options": ["Join as a co-founder", "Decline and stay focused on my job"],
+      "decision": "Decline and stay focused on my job",
+      "reason": "I had just started somewhere new. Doing both badly is worse than doing one well.",
+      "category": "career",
+      "importance": 8,
+      "occurred_at": "2026-03-09",
+      "outcome": "Declined.",
+      "satisfaction": 0.6
+    },
+    {
+      "situation": "My company offered a sabbatical option: three months unpaid to travel or study, with my role held open.",
+      "options": ["Take the sabbatical", "Keep working"],
+      "decision": "Keep working",
+      "reason": "Three months without income while I am still new in the role. Maybe in a few years.",
+      "category": "career",
+      "importance": 5,
+      "occurred_at": "2026-04-27",
+      "outcome": "Kept working.",
+      "satisfaction": 0.4
+    },
+    {
+      "situation": "A competitor offered me roughly double my current salary to move to Dubai on a three-year contract. Established company, but it would mean leaving my parents again, and my sister has since moved abroad.",
+      "options": ["Accept the Dubai offer", "Stay and decline"],
+      "decision": "Stay and decline",
+      "reason": "Double is a lot of money. But there is nobody else near my parents now, and I have been here two years. It was closer than I expected.",
+      "category": "career",
+      "importance": 10,
+      "occurred_at": "2026-06-15",
+      "outcome": "Declined.",
+      "satisfaction": 0.6
+    },
+    {
+      "situation": "An internal opening to lead a small team in the same office, modest raise, more management and less hands-on technical work.",
+      "options": ["Take the team lead role", "Stay hands-on"],
+      "decision": "Take the team lead role",
+      "reason": "It is the direction I want long term and nothing else in my life has to change to do it.",
+      "category": "career",
+      "importance": 7,
+      "occurred_at": "2026-07-30",
+      "outcome": "Took it.",
+      "satisfaction": 0.9
+    }
+  ],
+  "questionnaire": {
+    "risk_1": 2, "risk_2": 4, "risk_3": 4,
+    "unc_1": 2, "unc_2": 4, "unc_3": 4,
+    "fin_1": 3, "fin_2": 3, "fin_3": 5,
+    "fam_1": 5, "fam_2": 2, "fam_3": 5,
+    "car_1": 4, "car_2": 3,
+    "soc_1": 3, "soc_2": 4, "soc_3": 2,
+    "lto_1": 5, "lto_2": 2, "lto_3": 5,
+    "loss_1": 4, "loss_2": 4, "loss_3": 2,
+    "rew_1": 4, "rew_2": 2,
+    "plan_1": 5, "plan_2": 2, "plan_3": 2, "plan_4": 4,
+    "mor_1": 5, "mor_2": 2
+  },
+  "facts": [
+    {
+      "key": "living_situation",
+      "content": "Lives in the same city as their parents and is the primary person available to help them.",
+      "importance": 0.9
+    },
+    {
+      "key": "financial_obligations",
+      "content": "Sends money home monthly and owns their flat outright with no mortgage.",
+      "importance": 0.8
+    },
+    {
+      "key": "field",
+      "content": "Works in data and analytics; currently a team lead at a Series B company.",
+      "importance": 0.6
+    }
+  ]
+}

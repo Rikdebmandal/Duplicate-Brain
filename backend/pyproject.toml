@@ -1,0 +1,29 @@
+[project]
+name = "cognitive-twin-backend"
+version = "1.0.0"
+description = "Personal Cognitive Digital Twin - behavioural decision prediction API"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["*/tests/*", "*/alembic/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+ignore = [
+    "B008",  # FastAPI dependencies are function calls in defaults by design
+    "E501",  # line length is enforced by the formatter, not the linter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402"]  # conftest sets env vars before importing the app
