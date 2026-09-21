@@ -38,7 +38,13 @@ class Settings(BaseSettings):
     # Leave blank in development; generate with `python -m app.security keygen`.
     field_encryption_key: str = ""
 
-    cors_origins: list[str] = Field(default_factory=lambda: ["http://localhost:3000"])
+    cors_origins: list[str] = Field(
+        default_factory=lambda: [
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+            "https://duplicate-brain.onrender.com",
+        ]
+    )
 
     # -- embeddings ----------------------------------------------------
     # "hashing"  -> deterministic offline embedder (default, zero dependencies)
