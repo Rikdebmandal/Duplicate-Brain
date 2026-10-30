@@ -6,6 +6,9 @@ import { ReactNode, useEffect, useState } from "react";
 
 import { api, getToken, setToken } from "@/lib/api";
 import type { User } from "@/lib/types";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+
+export { ThemeSwitcher };
 
 // ---------------------------------------------------------------------------
 // primitives
@@ -382,6 +385,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </nav>
 
           <div className="flex items-center gap-3 text-xs text-ink-400">
+            <ThemeSwitcher />
             <span className="hidden sm:inline">{user?.email}</span>
             <button
               onClick={() => {

@@ -1,27 +1,31 @@
 import type { Config } from "tailwindcss";
 
+function withOpacity(variableName: string) {
+  return `color-mix(in srgb, var(${variableName}) calc(100% * <alpha-value>), transparent)`;
+}
+
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
         ink: {
-          950: "#0b0f17",
-          900: "#111725",
-          800: "#1a2233",
-          700: "#273248",
-          600: "#3b4a66",
-          400: "#8494b3",
-          200: "#c9d3e6",
+          950: withOpacity("--color-ink-950"),
+          900: withOpacity("--color-ink-900"),
+          800: withOpacity("--color-ink-800"),
+          700: withOpacity("--color-ink-700"),
+          600: withOpacity("--color-ink-600"),
+          400: withOpacity("--color-ink-400"),
+          200: withOpacity("--color-ink-200"),
         },
         accent: {
-          DEFAULT: "#5b8def",
-          soft: "#7ba4f5",
-          dim: "#31427a",
+          DEFAULT: withOpacity("--color-accent"),
+          soft: withOpacity("--color-accent-soft"),
+          dim: withOpacity("--color-accent-dim"),
         },
-        positive: "#3fb984",
-        negative: "#e2685f",
-        caution: "#e0a44b",
+        positive: withOpacity("--color-positive"),
+        negative: withOpacity("--color-negative"),
+        caution: withOpacity("--color-caution"),
       },
       fontFamily: {
         sans: ["ui-sans-serif", "system-ui", "Segoe UI", "Inter", "sans-serif"],

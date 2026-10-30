@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 
-import { Banner, Button, Field, inputClass } from "@/components/ui";
+import { Banner, Button, Field, ThemeSwitcher, inputClass } from "@/components/ui";
 import { ApiError, api, getToken, setToken } from "@/lib/api";
 
 export default function LoginPage() {
@@ -46,7 +46,10 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
+    <div className="relative mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
+      <div className="absolute right-6 top-6">
+        <ThemeSwitcher />
+      </div>
       <div className="mb-8">
         <div className="mb-4 flex items-center gap-2.5">
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent/15 text-accent">
