@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     # Leave blank in development; generate with `python -m app.security keygen`.
     field_encryption_key: str = ""
 
-    cors_origins: list[str] = Field(
+    cors_origins: list[str] | str = Field(
         default_factory=lambda: [
             "http://localhost:3000",
             "http://127.0.0.1:3000",
@@ -74,6 +74,13 @@ class Settings(BaseSettings):
     @classmethod
     def _split_origins(cls, v: object) -> object:
         if isinstance(v, str):
+            v = v.strip()
+            if v.startswith("[") and v.endswith("]"):
+                import json
+                try:
+                    return json.loads(v)
+                except Exception:
+                    pass
             return [o.strip() for o in v.split(",") if o.strip()]
         return v
 

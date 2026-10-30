@@ -4,16 +4,51 @@
 
 @layer base {
   :root {
+    color-scheme: light dark;
+
+    /* Theme color tokens using modern light-dark() */
+    --color-ink-950: light-dark(#f8fafc, #0b0f17);
+    --color-ink-900: light-dark(#ffffff, #111725);
+    --color-ink-800: light-dark(#e2e8f0, #1a2233);
+    --color-ink-700: light-dark(#cbd5e1, #273248);
+    --color-ink-600: light-dark(#64748b, #3b4a66);
+    --color-ink-400: light-dark(#475569, #8494b3);
+    --color-ink-200: light-dark(#0f172a, #c9d3e6);
+
+    --color-accent: light-dark(#2563eb, #5b8def);
+    --color-accent-soft: light-dark(#3b82f6, #7ba4f5);
+    --color-accent-dim: light-dark(#dbeafe, #31427a);
+
+    --color-positive: light-dark(#16a34a, #3fb984);
+    --color-negative: light-dark(#dc2626, #e2685f);
+    --color-caution: light-dark(#d97706, #e0a44b);
+
+    /* Chart specific color tokens */
+    --color-chart-axis: light-dark(#cbd5e1, #273248);
+    --color-chart-grid: light-dark(#e2e8f0, #1a2233);
+    --color-chart-muted: light-dark(#64748b, #8494b3);
+
+    accent-color: var(--color-accent);
+  }
+
+  /* Reflect head meta[name="color-scheme"] and data-theme into CSS color-scheme */
+  :root:has(> head > meta[name="color-scheme"][content="dark"]),
+  :root[data-theme="dark"] {
     color-scheme: dark;
+  }
+
+  :root:has(> head > meta[name="color-scheme"][content="light"]),
+  :root[data-theme="light"] {
+    color-scheme: light;
   }
 
   html,
   body {
     @apply bg-ink-950 text-ink-200 antialiased;
+    min-height: 100vh;
   }
 
-  /* Range inputs are central to the scenario simulator, so they get styled
-     rather than left to the browser default. */
+  /* Range inputs */
   input[type="range"] {
     @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-ink-800;
   }

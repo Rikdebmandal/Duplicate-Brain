@@ -14,7 +14,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+              try {
+                var saved = localStorage.getItem("color-scheme");
+                var scheme = saved === "light" || saved === "dark" ? saved : "light dark";
+                var meta = document.querySelector('meta[name="color-scheme"]');
+                if (meta) meta.content = scheme;
+                if (saved === "light" || saved === "dark") {
+                  document.documentElement.dataset.theme = saved;
+                }
+              } catch (e) {}
+            })();`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

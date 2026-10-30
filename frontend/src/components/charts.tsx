@@ -6,9 +6,9 @@ import { useId } from "react";
 // here are simple, and it keeps the bundle free of a dependency whose defaults
 // would have to be fought anyway.
 
-const AXIS = "#273248";
-const GRID = "#1a2233";
-const MUTED = "#8494b3";
+const AXIS = "var(--color-chart-axis)";
+const GRID = "var(--color-chart-grid)";
+const MUTED = "var(--color-chart-muted)";
 
 // ---------------------------------------------------------------------------
 // radar
@@ -62,8 +62,8 @@ export function RadarChart({
     <svg viewBox={`0 0 ${size} ${size}`} className="w-full" role="img" aria-label="Behavioural profile radar">
       <defs>
         <radialGradient id={`${id}-fill`}>
-          <stop offset="0%" stopColor="#5b8def" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#5b8def" stopOpacity="0.12" />
+          <stop offset="0%" stopColor="var(--color-accent)" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0.12" />
         </radialGradient>
       </defs>
 
@@ -117,14 +117,14 @@ export function RadarChart({
       <path
         d={path(points.map((p) => p.value))}
         fill={`url(#${id}-fill)`}
-        stroke="#5b8def"
+        stroke="var(--color-accent)"
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
 
       {points.map((point, index) => {
         const [x, y] = at(index, Math.max(0.02, point.value));
-        return <circle key={point.label} cx={x} cy={y} r="2.6" fill="#5b8def" />;
+        return <circle key={point.label} cx={x} cy={y} r="2.6" fill="var(--color-accent)" />;
       })}
     </svg>
   );
@@ -235,9 +235,9 @@ export function CalibrationChart({
           cx={scale(bin.mean_confidence)}
           cy={size - scale(bin.observed_accuracy)}
           r={4 + (bin.count / maxCount) * 6}
-          fill="#5b8def"
+          fill="var(--color-accent)"
           fillOpacity="0.65"
-          stroke="#5b8def"
+          stroke="var(--color-accent)"
         />
       ))}
       <text x={size / 2} y={size - 6} fill={MUTED} fontSize="9" textAnchor="middle">
@@ -300,7 +300,7 @@ export function TimelineChart({
               cx={x}
               cy={y}
               r={r}
-              fill={entry.approach >= 0.5 ? "#5b8def" : "#3fb984"}
+              fill={entry.approach >= 0.5 ? "var(--color-accent)" : "var(--color-positive)"}
               fillOpacity="0.8"
             >
               <title>{`${entry.occurred_at.slice(0, 10)} - ${entry.chosen_option} (importance ${entry.importance}/10)`}</title>
@@ -337,18 +337,18 @@ export function SweepChart({
     <svg viewBox={`0 0 ${width} ${height}`} className="w-full" role="img" aria-label={`Sweep for ${optionLabel}`}>
       <line x1={pad.left} y1={py(0.5)} x2={width - pad.right} y2={py(0.5)} stroke={GRID} strokeDasharray="3 3" />
       {flipAt !== null && (
-        <line x1={px(flipAt)} y1={pad.top} x2={px(flipAt)} y2={height - pad.bottom} stroke="#e0a44b" strokeWidth="1.5" />
+        <line x1={px(flipAt)} y1={pad.top} x2={px(flipAt)} y2={height - pad.bottom} stroke="var(--color-caution)" strokeWidth="1.5" />
       )}
       <path
         d={points
           .map((p, i) => `${i === 0 ? "M" : "L"}${px(p.value).toFixed(1)},${py(p.probability).toFixed(1)}`)
           .join(" ")}
         fill="none"
-        stroke="#5b8def"
+        stroke="var(--color-accent)"
         strokeWidth="2"
         strokeLinecap="round"
       />
-      <circle cx={px(currentValue)} cy={py(points.find((p) => Math.abs(p.value - currentValue) < 0.13)?.probability ?? 0.5)} r="3.5" fill="#c9d3e6" />
+      <circle cx={px(currentValue)} cy={py(points.find((p) => Math.abs(p.value - currentValue) < 0.13)?.probability ?? 0.5)} r="3.5" fill="var(--color-ink-200)" />
       <text x={pad.left} y={height - 3} fill={MUTED} fontSize="8">
         0
       </text>
